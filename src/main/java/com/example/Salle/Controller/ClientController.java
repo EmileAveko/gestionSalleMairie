@@ -1,8 +1,10 @@
 package com.example.Salle.Controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,6 +43,11 @@ public class ClientController {
 	@GetMapping("/clients/{id}")
 	public Client getClient(@PathVariable Long id) {
 		return clientservice.getClient(id);
+	}
+	
+	@GetMapping("/clientes/{nom}")
+	public Client getCliente(@PathVariable String nom) {
+		return clientservice.getCliente(nom);
 	}
 	
 	

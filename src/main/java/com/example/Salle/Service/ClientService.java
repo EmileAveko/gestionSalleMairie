@@ -2,7 +2,12 @@ package com.example.Salle.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.example.Salle.DAO.Client.ClientRepository;
@@ -14,7 +19,8 @@ public class ClientService {
 	
 	@Autowired
 	private ClientRepository clientRepo;
-
+  
+	
 	public ClientService(ClientRepository clientRepo) {
 		this.clientRepo = clientRepo;
 	}
@@ -30,15 +36,16 @@ public class ClientService {
 	
 	public Client updateClient(Client client) {
 		
-		Client existingclient= clientRepo.findById(client.getID()).orElse(null);
+		Client existingclient= clientRepo.findById(client.getId()).orElse(null);
 		existingclient.setNom(client.getNom());
 		existingclient.setSexe(client.getSexe());
 		existingclient.setDateNaissance(client.getDateNaissance());
-		existingclient.setContact(client.getContact());
+	    existingclient.setContact(client.getContact());
 		existingclient.setMail(client.getMail());
 		existingclient.setListreservation(client.getListreservation());
 		
 		return clientRepo.save(existingclient);
+		
 	}
 	
 	public void deleteClient(Long id) {
@@ -49,10 +56,16 @@ public class ClientService {
 		return clientRepo.findById(id).orElse(null);
 	}
 	
-	public List<Client> retrieveClients(){
-		List<Client> listclient= new ArrayList<Client>();
-		clientRepo.findAll().forEach(listclient::add);
-		return listclient;
-		
+	public Client getCliente(String nom) {
+		return clientRepo.findByMail(nom);
 	}
+	
+	public List<Client> retrieveClients(){
+		/*List<Client> listclient= new ArrayList<Client>();
+		clientRepo.findAll().forEach(listclient::add);
+		return listclient;*/
+		
+		return clientRepo.findAll();
+	}
+	
 }

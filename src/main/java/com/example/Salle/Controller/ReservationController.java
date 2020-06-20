@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
- import com.example.Salle.Entities.Reservation;
+import com.example.Salle.DAO.Reservation.ReservationRepository.NameOnly;
+import com.example.Salle.Dto.AccueilData;
+import com.example.Salle.Entities.Reservation;
 
 import com.example.Salle.Service.ReservationService;
 
+
+@RestController
 public class ReservationController {
 	@Autowired
 	private ReservationService reservationservice;
@@ -29,34 +34,34 @@ public class ReservationController {
 	}
 
 	
-	@RequestMapping(method = RequestMethod.GET,value="/clients")
+	@RequestMapping(method = RequestMethod.GET,value="/reservations")
 	public List<Reservation> getAllReservation(){
 		return reservationservice.retrieveReservation();
 		
 	}
 	
 	
-	@GetMapping("/clients/{id}")
+	@GetMapping("/reservations/{id}")
 	public Reservation getReservation(@PathVariable Long id) {
 		return reservationservice.getReservation(id);
 	}
 	
 	
-	@PostMapping("/client")
+	@PostMapping("/reservation")
 	public void addReservation(@RequestBody Reservation reservation) {
 	  reservationservice.createReservation(reservation);	
 	}
 	
 	
 	
-	@PutMapping("/cliente")
+	@PutMapping("/reservationner")
 	public void updateReservation(@RequestBody Reservation reservation) {
 		reservationservice.updateReservation(reservation);
 	}
 	
 	
 	
-   @DeleteMapping("clientel/{id}")
+   @DeleteMapping("reserver/{id}")
    public void deleteReservation(@PathVariable Long id)	
    {
 	   reservationservice.deleteReservationEquipement(id);;
@@ -72,6 +77,9 @@ public class ReservationController {
 		this.reservationservice = reservationservice;
 	}
 	
-
+		@RequestMapping(method = RequestMethod.GET,value="/sallesacceuil")
+	public List<NameOnly> getAccueilData(){
+		return reservationservice.getit();
+	}
 
 }

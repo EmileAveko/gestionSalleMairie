@@ -11,66 +11,78 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.example.Salle.Entities.Client;
-import com.example.Salle.Service.ClientService;
+import com.example.Salle.DAO.Reservation.ReservationRepository.NameOnly;
+import com.example.Salle.DAO.ReservationEquipement.ReservationEquipementRepository.NameOnce;
+import com.example.Salle.Entities.ReservationEquipement;
+import com.example.Salle.Service.ReservationEquipementService;
 
+@RestController
 public class ReservartionEquipementController {
 
 	@Autowired
-	private ClientService clientservice;
+	private ReservationEquipementService reservationEquipementService;
 	
 	
 
 	
-	public ClientController(ClientService clientservice) {
+	public ReservartionEquipementController(ReservationEquipementService reservationequipementservice) {
 	
-		this.clientservice = clientservice;
+		this.reservationEquipementService = reservationequipementservice;
 	}
 
 	
-	@RequestMapping(method = RequestMethod.GET,value="/clients")
-	public List<Client> getAllClients(){
-		return clientservice.retrieveClients();
+	@RequestMapping(method = RequestMethod.GET,value="/reservationsequipements")
+	public List<ReservationEquipement> getAllClients(){
+		return reservationEquipementService.retrieveReservationEquipement();
 		
 	}
 	
 	
-	@GetMapping("/clients/{id}")
-	public Client getClient(@PathVariable Long id) {
-		return clientservice.getClient(id);
+	@GetMapping("/reservationsequpements/{id}")
+	public ReservationEquipement getReservationEquipement(@PathVariable Long id) {
+		return reservationEquipementService.getReservationEquipement(id);
 	}
 	
 	
-	@PostMapping("/client")
-	public void addClient(@RequestBody Client client) {
-	  clientservice.createClient(client);	
-	}
-	
-	
-	
-	@PutMapping("/cliente")
-	public void updateClient(@RequestBody Client client) {
-		clientservice.updateClient( client);
+	@PostMapping("/reservationequipement")
+	public void addReservationEquipement(@RequestBody ReservationEquipement reservationEquipement) {
+	  reservationEquipementService.createReservationEquipement(reservationEquipement);	
 	}
 	
 	
 	
-   @DeleteMapping("clientel/{id}")
-   public void deleteClient(@PathVariable Long id)	
+	@PutMapping("/reservationnerequipement")
+	public void updateReservationEquipement(@RequestBody ReservationEquipement reservationEquipement) {
+		reservationEquipementService.updateReservationEquipement( reservationEquipement);
+	}
+	
+	
+	
+   @DeleteMapping("reserverequipement/{id}")
+   public void deleteReservationEquipement(@PathVariable Long id)	
    {
-	   clientservice.deleteClient(id);
+	   reservationEquipementService.deleteReservationEquipement(id);
    }
-   
-   
-   
-	public ClientService getClientservice() {
-		return clientservice;
-	}
 
-	public void setClientservice(ClientService clientservice) {
-		this.clientservice = clientservice;
-	}
+
+public ReservationEquipementService getReservationEquipementService() {
+	return reservationEquipementService;
+}
+
+
+public void setReservationEquipementService(ReservationEquipementService reservationEquipementService) {
+	this.reservationEquipementService = reservationEquipementService;
+}
+   
+   
+
+@RequestMapping(method = RequestMethod.GET,value="/equipementreserver")
+public List<NameOnce> getAccueilData(){
+return reservationEquipementService.findIt();
+}
+
 	
 
 }

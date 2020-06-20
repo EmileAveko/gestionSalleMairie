@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.example.Salle.Entities.Client;
 import com.example.Salle.Entities.Equipement;
-import com.example.Salle.Service.ClientService;
 import com.example.Salle.Service.EquipementService;
 
+@RestController
 public class EquipementController {
 
 	@Autowired
@@ -31,37 +31,37 @@ public class EquipementController {
 	}
 
 	
-	@RequestMapping(method = RequestMethod.GET,value="/clients")
-	public List<Equipement> getAllClients(){
+	@RequestMapping(method = RequestMethod.GET,value="/equipements")
+	public List<Equipement> getAllEquipement(){
 		return equipementservice.retrieveEquipement();
 		
 	}
 	
 	
-	@GetMapping("/clients/{id}")
-	public Equipement getEquipement(@PathVariable Long id) {
-		return equipementservice.getEquipement(id);
+	@GetMapping("/equipements/{id}")
+	public List<Equipement> getEquipement(@PathVariable Long id) {
+		return equipementservice.getEquipementByReservation(id);
 	}
 	
 	
-	@PostMapping("/client")
+	@PostMapping("/equipement")
 	public void addEquipement(@RequestBody Equipement equipement) {
 	  equipementservice.createEquipement(equipement);	
 	}
 	
 	
 	
-	@PutMapping("/cliente")
+	@PutMapping("/equipementtier")
 	public void updateEquipement(@RequestBody Equipement equipement) {
 		equipementservice.updateEquipement(equipement);
 	}
 	
 	
 	
-   @DeleteMapping("clientel/{id}")
+   @DeleteMapping("equipement/{id}")
    public void deleteEquipement(@PathVariable Long id)	
    {
-	   equipementservice.deleteEquipement(id);;
+	   equipementservice.deleteEquipement(id);
    }
    
    
@@ -72,6 +72,12 @@ public class EquipementController {
 
 	public void setEquipementService(EquipementService equipementservice) {
 		this.equipementservice = equipementservice;
+	}
+	
+	
+	@GetMapping("/equipementsReserver/{id}")
+	public List<Equipement> getEquipementReservation(@PathVariable Long id) {
+		return equipementservice.getEquipementByReservation(id);
 	}
 	
 

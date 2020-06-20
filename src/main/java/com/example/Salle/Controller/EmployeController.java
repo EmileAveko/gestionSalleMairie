@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Salle.Entities.Employe;
 import com.example.Salle.Service.EmployeService;
-import com.example.Salle.Service.GardienService;
 
 
 
@@ -31,14 +30,14 @@ public class EmployeController {
 		this.employeService = employeService;
 	}
 
-	@RequestMapping(method = RequestMethod.GET,value="/gardiens")
+	@RequestMapping(method = RequestMethod.GET,value="/employes")
 	public List<Employe> getAllEmployes(){
 		return employeService.retrieveEmployes();
 		
 	}
 	
 	
-	@GetMapping("/employes/{id}")
+	@GetMapping("/employe/{id}")
 	public Employe getEmploye(@PathVariable Long id) {
 		return employeService.getEmploye(id);
 	}
@@ -58,7 +57,7 @@ public class EmployeController {
 	
 	
 	
-   @DeleteMapping("emploi{id}")
+   @DeleteMapping("/emploi/{id}")
    public void deleteGardien(@PathVariable Long id)	
    {
 	   employeService.deleteEmploye(id);

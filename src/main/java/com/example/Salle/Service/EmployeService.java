@@ -31,13 +31,14 @@ public class EmployeService {
 	
 	public Employe updateEmploye(Employe employe) {
 		
-		Employe existingemploye= employeRepo.findById(employe.getID()).orElse(null);
+		Employe existingemploye= employeRepo.findById(employe.getId()).orElse(null);
 		existingemploye.setNom(employe.getNom());
 		existingemploye.setSexe(employe.getSexe());
 		existingemploye.setDateNaissance(employe.getDateNaissance());
 		existingemploye.setMot_de_passe(employe.getMot_de_passe());
 		existingemploye.setListreservation(employe.getListreservation());
 		return employeRepo.save(existingemploye);
+		
 	}
 	
 	public void deleteEmploye(Long id) {
@@ -49,9 +50,10 @@ public class EmployeService {
 	}
 	
 	public List<Employe> retrieveEmployes(){
-		List<Employe> listemploye= new ArrayList<Employe>();
+		/*List<Employe> listemploye= new ArrayList<Employe>();
 		employeRepo.findAll().forEach(listemploye::add);
-		return listemploye;
+		return listemploye;*/
+		return employeRepo.findAll();
 		
 	}
 

@@ -30,12 +30,13 @@ public class GardienService {
 	
 	public Gardien updateGardien(Gardien gardien) {
 		
-		Gardien existinggardien= gardienRepo.findById(gardien.getID()).orElse(null);
+		Gardien existinggardien= gardienRepo.findById(gardien.getId()).orElse(null);
 		existinggardien.setNom(gardien.getNom());
 		existinggardien.setSexe(gardien.getSexe());
 		existinggardien.setDateNaissance(gardien.getDateNaissance());
-		existinggardien.setsalle(gardien.getsalle());
+		//existinggardien.setsalle(gardien.getsalle());
 		return gardienRepo.save(existinggardien);
+	
 	}
 	
 	public void deleteGardien(Long id) {
@@ -47,9 +48,10 @@ public class GardienService {
 	}
 	
 	public List<Gardien> retrieveGardiens(){
-		List<Gardien> listequipement= new ArrayList<Gardien>();
+		/*List<Gardien> listequipement= new ArrayList<Gardien>();
 		gardienRepo.findAll().forEach(listequipement::add);
-		return listequipement;
+		return listequipement;*/
+		return gardienRepo.findAll();
 
 }
 }

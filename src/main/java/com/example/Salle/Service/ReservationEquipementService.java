@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.Salle.DAO.Reservation.ReservationRepository.NameOnly;
 import com.example.Salle.DAO.ReservationEquipement.*;
+import com.example.Salle.DAO.ReservationEquipement.ReservationEquipementRepository.NameOnce;
 import com.example.Salle.Entities.ReservationEquipement;
 
 @Service
@@ -28,13 +30,14 @@ public class ReservationEquipementService{
 		return reservationequipementRepo.saveAll(listreservationequipement);
 	}
 	
-	public ReservationEquipement updateEquipement(ReservationEquipement reservationequipement) {
+	public ReservationEquipement updateReservationEquipement(ReservationEquipement reservationequipement) {
 		
-		ReservationEquipement existingreservationequipement= reservationequipementRepo.findById(reservationequipement.getID()).orElse(null);
-		existingreservationequipement.setEquipement(reservationequipement.getEquipement());
-		existingreservationequipement.setReservation(reservationequipement.getReservation());
+		ReservationEquipement existingreservationequipement= reservationequipementRepo.findById(reservationequipement.getId()).orElse(null);
+		//existingreservationequipement.setEquipement(reservationequipement.getEquipement());
+		//existingreservationequipement.setReservation(reservationequipement.getReservation());
 		
 		return reservationequipementRepo.save(existingreservationequipement);
+		
 	}
 	
 	public void deleteReservationEquipement(Long id) {
@@ -46,13 +49,17 @@ public class ReservationEquipementService{
 	}
 	
 	public List<ReservationEquipement> retrieveReservationEquipement(){
-		List<ReservationEquipement> listreservationequipement= new ArrayList<ReservationEquipement>();
+	  /*	List<ReservationEquipement> listreservationequipement= new ArrayList<ReservationEquipement>();
 		reservationequipementRepo.findAll().forEach(listreservationequipement::add);
-		return listreservationequipement;
+		return listreservationequipement;*/
+		return reservationequipementRepo.findAll();
 
 	
 }
 
+	public List<NameOnce> findIt(){
+		return reservationequipementRepo.getData();
+	}
 	
 	
 	

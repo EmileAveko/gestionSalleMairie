@@ -2,13 +2,16 @@ package com.example.Salle.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import com.example.Salle.DAO.Salle.SalleRepository;
+import com.example.Salle.Dto.AccueilData;
 import com.example.Salle.Entities.Salle;
 
+@Service
 public class SalleService {
 
 	
@@ -30,8 +33,8 @@ public class SalleService {
 	
 	public Salle updateSalle(Salle salle) {
 		
-		Salle existingsalle= salleRepo.findById(salle.getID()).orElse(null);
-		existingsalle.setNom(salle.getNom());
+		Salle existingsalle= salleRepo.findById(salle.getId()).orElse(null);
+		existingsalle.setNomSal(salle.getNomSal());
 		existingsalle.setListreservation(existingsalle.getListreservation());
 		existingsalle.setPrix(salle.getPrix());
 		existingsalle.setAdresse(salle.getAdresse());
@@ -41,6 +44,7 @@ public class SalleService {
 		existingsalle.setListgardien(salle.getListgardien());
 		
 		return salleRepo.save(existingsalle);
+
 	}
 	
 	public void deleteSalle(Long id) {
@@ -52,11 +56,15 @@ public class SalleService {
 	}
 	
 	public List<Salle> retrieveSalle(){
-		List<Salle> listesalle= new ArrayList<Salle>();
+		/*ist<Salle> listesalle= new ArrayList<Salle>();
 		salleRepo.findAll().forEach(listesalle::add);
-		return listesalle;
-
-	
+		return listesalle;*/
+		return salleRepo.findAll();
 }
 
+	
+	
+	public Set<Salle> getSales(){
+		return salleRepo.getInfo();
+	}
 }

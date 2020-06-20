@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.Salle.DAO.Reservation.*;
+import com.example.Salle.DAO.Reservation.ReservationRepository.NameOnly;
+import com.example.Salle.Dto.AccueilData;
 import com.example.Salle.Entities.*; 
 
 
@@ -33,16 +35,17 @@ public class ReservationService {
 	}
 	
 	public Reservation updateReservation(Reservation reservation) {
-		
-		Reservation existingreservation= reservationRepo.findById(reservation.getID()).orElse(null);
-		existingreservation.setClient(reservation.getClient());
-		existingreservation.setEmploye(reservation.getEmploye());
+	
+		Reservation existingreservation= reservationRepo.findById(reservation.getId()).orElse(null);
+		//existingreservation.setClient(reservation.getClient());
+	//	existingreservation.setEmploye(reservation.getEmploye());
 		existingreservation.setHeuredep(reservation.getHeuredep());
 		existingreservation.setHeurefin(reservation.getHeurefin());
 		existingreservation.setListReservationEquipement(reservation.getListReservationEquipement());
 		existingreservation.setNomev(reservation.getNomev());
-		existingreservation.setSalle(reservation.getSalle());
+		//existingreservation.setSalle(reservation.getSalle());
 		return reservationRepo.save(existingreservation);
+	
 	}
 	
 	public void deleteReservationEquipement(Long id) {
@@ -54,12 +57,18 @@ public class ReservationService {
 	}
 	
 	public List<Reservation> retrieveReservation(){
-		List<Reservation> listreservation= new ArrayList<Reservation>();
+		/*List<Reservation> listreservation= new ArrayList<Reservation>();
 		reservationRepo.findAll().forEach(listreservation::add);
-		return listreservation;
-
+		return listreservation;*/
+return reservationRepo.findAll();
 	
 }
 	
+	/*public List<AccueilData> getAccueilData(){
+	return reservationRepo.getDataAccueil();
+}*/
+	public List<NameOnly> getit(){
+		return reservationRepo.getData();
+	}
 	
 }

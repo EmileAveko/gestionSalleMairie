@@ -1,6 +1,7 @@
 package com.example.Salle.Controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,10 +12,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.example.Salle.Dto.AccueilData;
 import com.example.Salle.Entities.Salle;
 import com.example.Salle.Service.SalleService;
 
+@RestController
 public class SalleController {
 	
 	@Autowired
@@ -29,34 +33,34 @@ public class SalleController {
 	}
 
 	
-	@RequestMapping(method = RequestMethod.GET,value="/clients")
-	public List<Salle> getAllClients(){
+	@RequestMapping(method = RequestMethod.GET,value="/salles")
+	public List<Salle> getAllSalles(){
 		return salleservice.retrieveSalle();
 		
 	}
 	
 	
-	@GetMapping("/clients/{id}")
+	@GetMapping("/salles/{id}")
 	public Salle getSalle(@PathVariable Long id) {
 		return salleservice.getSalle(id);
 	}
 	
 	
-	@PostMapping("/client")
+	@PostMapping("/salle")
 	public void addSalle(@RequestBody Salle salle) {
 	  salleservice.createSalle(salle);	
 	}
 	
 	
 	
-	@PutMapping("/cliente")
+	@PutMapping("/saller")
 	public void updateSalle(@RequestBody Salle salle) {
 		salleservice.updateSalle( salle);
 	}
 	
 	
 	
-   @DeleteMapping("clientel/{id}")
+   @DeleteMapping("saller/{id}")
    public void deleteClient(@PathVariable Long id)	
    {
 	   salleservice.deleteSalle(id);
@@ -74,4 +78,9 @@ public class SalleController {
 	
 
 
+	@RequestMapping(method = RequestMethod.GET,value="/info")
+	public Set<Salle> getInfo(){
+		return salleservice.getSales();
+	}
+	
 }

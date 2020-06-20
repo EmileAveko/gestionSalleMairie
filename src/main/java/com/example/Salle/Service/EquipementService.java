@@ -30,12 +30,13 @@ public class EquipementService {
 	
 	public Equipement updateEquipement(Equipement equipement) {
 		
-		Equipement existingequipement= equipementRepo.findById(equipement.getID()).orElse(null);
+		Equipement existingequipement= equipementRepo.findById(equipement.getId()).orElse(null);
 		existingequipement.setNom(equipement.getNom());
 		existingequipement.setNomPhoto(equipement.getNomPhoto());
 		existingequipement.setPrix(equipement.getPrix());
-		existingequipement.setSalle(equipement.getSalle());
+		//existingequipement.setSalle(equipement.getSalle());
 		return equipementRepo.save(existingequipement);
+		
 	}
 	
 	public void deleteEquipement(Long id) {
@@ -47,10 +48,14 @@ public class EquipementService {
 	}
 	
 	public List<Equipement> retrieveEquipement(){
-		List<Equipement> listequipement= new ArrayList<Equipement>();
+		/*List<Equipement> listequipement= new ArrayList<Equipement>();
 		equipementRepo.findAll().forEach(listequipement::add);
-		return listequipement;
-
-	
+		return listequipement;	*/
+		return equipementRepo.findAll();
 }
+	
+	public List<Equipement> getEquipementByReservation(Long id){
+		return equipementRepo.getEquipementByReservation(id);
+	}
+	
 }
