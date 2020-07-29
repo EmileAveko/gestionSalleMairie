@@ -54,6 +54,7 @@ public class Reservation {
 	 //@Setter
 	private String nomev;
 	//private String etat;
+	private int nbrpers;
 
 	//@ManyToOne
     //@JsonIgnore
@@ -112,6 +113,15 @@ public class Reservation {
 
 	public void setListReservationEquipement(List<ReservationEquipement> listReservationEquipement) {
 		this.listReservationEquipement = listReservationEquipement;
+	}
+
+	public int getNbrpers() {
+		return nbrpers;
+	}
+
+	
+	public void setNbrpers(int nbrpers) {
+		this.nbrpers = nbrpers;
 	}
 	
 /*	

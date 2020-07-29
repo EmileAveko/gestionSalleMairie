@@ -60,6 +60,7 @@ public class Salle  {
 	//@Setter
 	private String etat;
 	
+	private int surface ;
 	//@OneToMany(mappedBy="salle")
 	@OneToMany(targetEntity = Gardien.class ,cascade = CascadeType.ALL)
 	  @JoinColumn(name="salle_id",referencedColumnName = "id")
@@ -280,6 +281,14 @@ public class Salle  {
 	public void setListEquipements(List<Equipement> listEquipements) {
 		this.listEquipements = listEquipements;
 	}
-	
 
+	public int getSurface() {
+		return surface;
+	}
+
+	public void setSurface(int surface) {
+		this.surface = surface;
+	}
+	
+   
 }

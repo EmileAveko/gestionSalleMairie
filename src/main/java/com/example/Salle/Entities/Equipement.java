@@ -5,16 +5,19 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
@@ -46,9 +49,10 @@ public class Equipement {
 	 //@Setter
 	private float prix;
 	 //@Getter
-	 //@Setter
-	private String nomPhoto;
 	
+	@OneToMany(targetEntity = ImageEquipement.class ,cascade = CascadeType.ALL)
+	  @JoinColumn(name="equipemnt_id",referencedColumnName = "id")
+	private Set<ImageEquipement> listImageEquipement;
 	/*
     @ManyToOne
 	private Salle salle;
@@ -86,13 +90,8 @@ public class Equipement {
 		this.prix = prix;
 	}
 
-	public String getNomPhoto() {
-		return nomPhoto;
-	}
-
-	public void setNomPhoto(String nomPhoto) {
-		this.nomPhoto = nomPhoto;
-	}
+	
+	
 
 	public Set<ReservationEquipement> getReservationequipement() {
 		return reservationequipement;
@@ -101,8 +100,19 @@ public class Equipement {
 	public void setReservationequipement(Set<ReservationEquipement> reservationequipement) {
 		this.reservationequipement = reservationequipement;
 	}
-    
+
+	public Set<ImageEquipement> getListImageEquipement() {
+		return listImageEquipement;
+	}
+
+	public void setListImageEquipement(Set<ImageEquipement> listImageEquipement) {
+		this.listImageEquipement = listImageEquipement;
+	}
+	
+	
+	
   
+	
     /*
     public Equipement() {}
 	

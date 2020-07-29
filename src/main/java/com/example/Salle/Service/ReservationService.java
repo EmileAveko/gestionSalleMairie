@@ -43,6 +43,7 @@ public class ReservationService {
 		existingreservation.setHeurefin(reservation.getHeurefin());
 		existingreservation.setListReservationEquipement(reservation.getListReservationEquipement());
 		existingreservation.setNomev(reservation.getNomev());
+	    existingreservation.setNbrpers(reservation.getNbrpers());
 		//existingreservation.setSalle(reservation.getSalle());
 		return reservationRepo.save(existingreservation);
 	

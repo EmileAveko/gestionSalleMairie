@@ -42,6 +42,7 @@ public class SalleService {
 		existingsalle.setCapmin(salle.getCapmin());
 		existingsalle.setListEquipements(salle.getListEquipements());
 		existingsalle.setListgardien(salle.getListgardien());
+		existingsalle.setSurface(salle.getSurface());
 		
 		return salleRepo.save(existingsalle);
 
