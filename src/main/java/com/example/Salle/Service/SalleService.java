@@ -35,14 +35,14 @@ public class SalleService {
 		
 		Salle existingsalle= salleRepo.findById(salle.getId()).orElse(null);
 		existingsalle.setNomSal(salle.getNomSal());
-		existingsalle.setListreservation(existingsalle.getListreservation());
 		existingsalle.setPrix(salle.getPrix());
-		existingsalle.setAdresse(salle.getAdresse());
+		existingsalle.setAdresse(salle.getAdress());
 		existingsalle.setCapmax(salle.getCapmax());
 		existingsalle.setCapmin(salle.getCapmin());
 		existingsalle.setListEquipements(salle.getListEquipements());
 		existingsalle.setListgardien(salle.getListgardien());
 		existingsalle.setSurface(salle.getSurface());
+		existingsalle.setListreservation(salle.getListReservations());
 		
 		return salleRepo.save(existingsalle);
 
@@ -61,7 +61,11 @@ public class SalleService {
 		salleRepo.findAll().forEach(listesalle::add);
 		return listesalle;*/
 		return salleRepo.findAll();
-}
+	}
+	
+	public Salle findSalle(String nomSalle) {
+		return salleRepo.findByNomsal(nomSalle);
+	}
 
 	
 	

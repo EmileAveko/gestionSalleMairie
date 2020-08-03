@@ -20,7 +20,7 @@ import com.example.Salle.Entities.Client;
 import com.example.Salle.Service.ClientService;
 
 @RestController
-//@CrossOrigin(origins="*")
+@CrossOrigin(origins="http://localhost:4200")
 public class ClientController {
 
 	@Autowired
@@ -75,13 +75,8 @@ public class ClientController {
    
    
    
-	public ClientService getClientservice() {
-		return clientservice;
-	}
-
-	public void setClientservice(ClientService clientservice) {
-		this.clientservice = clientservice;
-	}
+   
+	
 	
 	
 	

@@ -40,7 +40,7 @@ import lombok.ToString;
 public class Reservation {
 
 	 @Id
-	 @GeneratedValue // (strategy =GenerationType.AUTO)
+	// @GeneratedValue // (strategy =GenerationType.AUTO)
 	// @Getter
 	 //@Setter
 	private Long id;

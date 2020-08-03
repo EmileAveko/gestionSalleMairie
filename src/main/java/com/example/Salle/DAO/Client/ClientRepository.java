@@ -8,7 +8,7 @@ import com.example.Salle.Entities.Client;
 
 public interface ClientRepository extends JpaRepository<Client ,Long> {
 	
- public Client findByMail(String Nom);
+ public Client findByMail(String Mail);
 
 //	public Client findprivateclient();
 //	

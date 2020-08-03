@@ -46,7 +46,7 @@ public class Salle  {
 	private String nomsal;
 	//@Getter
 	//@Setter
-	private String adresse;
+	private String adress;
 	//@Getter
 	//@Setter
 	private int capmin;
@@ -71,7 +71,7 @@ public class Salle  {
 	@OneToMany(targetEntity = Reservation.class ,cascade = CascadeType.ALL)
 	  @JoinColumn(name="salle_id",referencedColumnName = "id")
     
-	private List<Reservation> listreservation;
+	private List<Reservation> listReservations;
 	
 	//@OneToMany(mappedBy="salle")
 	@OneToMany(targetEntity = Equipement.class ,cascade = CascadeType.ALL)
@@ -218,12 +218,12 @@ public class Salle  {
 		this.nomsal = nomsal;
 	}
 
-	public String getAdresse() {
-		return adresse;
+	public String getAdress() {
+		return adress;
 	}
 
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
+	public void setAdresse(String adress) {
+		this.adress = adress;
 	}
 
 	public int getCapmin() {
@@ -266,12 +266,12 @@ public class Salle  {
 		this.listgardien = listgardien;
 	}
 
-	public List<Reservation> getListreservation() {
-		return listreservation;
+	public List<Reservation> getListReservations() {
+		return listReservations;
 	}
 
-	public void setListreservation(List<Reservation> listreservation) {
-		this.listreservation = listreservation;
+	public void setListreservation(List<Reservation> listReservations) {
+		this.listReservations = listReservations;
 	}
 
 	public List<Equipement> getListEquipements() {

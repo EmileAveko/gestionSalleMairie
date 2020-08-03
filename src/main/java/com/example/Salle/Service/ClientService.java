@@ -56,8 +56,8 @@ public class ClientService {
 		return clientRepo.findById(id).orElse(null);
 	}
 	
-	public Client getCliente(String nom) {
-		return clientRepo.findByMail(nom);
+	public Client getCliente(String mail) {
+		return clientRepo.findByMail(mail);
 	}
 	
 	public List<Client> retrieveClients(){
