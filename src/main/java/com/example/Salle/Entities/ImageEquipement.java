@@ -12,8 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 @ToString
 @Entity
 @Getter
@@ -29,7 +28,18 @@ public class ImageEquipement {
 	 
 	 
 	 
+	 
+	public ImageEquipement(String nomPhoto, String type, byte[] photo) {
+		this.nomPhoto = nomPhoto;
+		this.type = type;
+		this.photo = photo;
+	}
 	
+	
+	public ImageEquipement() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
 	public Long getId() {
