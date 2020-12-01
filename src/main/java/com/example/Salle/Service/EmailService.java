@@ -22,10 +22,10 @@ import it.ozimov.springboot.mail.model.defaultimpl.DefaultEmail;
 
 
 @Service 
-@EnableAutoConfiguration(exclude = {MultipartAutoConfiguration.class})  
+//@EnableAutoConfiguration(exclude = {MultipartAutoConfiguration.class})  
 public class EmailService {
 
-   // @Autowired
+    @Autowired
 	private JavaMailSender javaMailSender;
 
     public EmailService(JavaMailSender javaMailSender) {

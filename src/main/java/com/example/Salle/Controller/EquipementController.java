@@ -18,7 +18,7 @@ import com.example.Salle.Entities.Equipement;
 import com.example.Salle.Service.EquipementService;
 
 @RestController
-//@CrossOrigin(origins="*")
+@CrossOrigin(origins="http://localhost:4200")
 public class EquipementController {
 
 	@Autowired

@@ -11,13 +11,13 @@ import com.example.Salle.Entities.Reservation;
 
 public interface ReservationRepository extends JpaRepository<Reservation,Long>{
 	
-	@Query(value=" Select c.nom, c.date_naissance, c.mail, c.status ,s.adresse ,s.capmin ,s.surface ,s.capmax, s.adress ,r.nomev,s.prix,r.heuredep,r.heurefin,s.nomsal   from client c, salle s , reservation r WHERE c.id =r.client_id AND r.salle_id =s.id ",nativeQuery=true)
+	@Query(value=" Select c.nom, c.date_naissance, c.mail, c.status ,s.capmin ,s.surface ,s.capmax, s.adress ,r.nomev,s.prix,r.heuredep,r.heurefin,s.nomsal,r.nbrpers,r.id  from client c, salle s , reservation r WHERE c.id =r.client_id AND r.salle_id =s.id AND s.etat != 'libre' ",nativeQuery=true)
 	List<NameOnly> getData();
 	
 	
 	
 	public static interface NameOnly {
-
+         int getId();
 	     String getNom();
 	     Date getDateNaissance();
 	     String getMail();
@@ -28,10 +28,10 @@ public interface ReservationRepository extends JpaRepository<Reservation,Long>{
 	     int getPrix();
 	     Date getHeuredep();
 	     Date getHeurefin();
-	     String getNomSal();
+	     String getNomsal();
 	     int getSurface();
 	     String getAdress();
-	     
+	     int getNbrpers();
 
 	  }
 	

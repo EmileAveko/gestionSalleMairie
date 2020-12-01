@@ -34,14 +34,15 @@ public class SalleService {
 	public Salle updateSalle(Salle salle) {
 		
 		Salle existingsalle= salleRepo.findById(salle.getId()).orElse(null);
-		existingsalle.setNomSal(salle.getNomSal());
+		existingsalle.setNomsal(salle.getNomsal());
 		existingsalle.setPrix(salle.getPrix());
-		existingsalle.setAdresse(salle.getAdress());
+		existingsalle.setAdress(salle.getAdress());
 		existingsalle.setCapmax(salle.getCapmax());
 		existingsalle.setCapmin(salle.getCapmin());
 		existingsalle.setListEquipements(salle.getListEquipements());
 		existingsalle.setListgardien(salle.getListgardien());
 		existingsalle.setSurface(salle.getSurface());
+		existingsalle.setEtat(salle.getEtat());
 		existingsalle.setListreservation(salle.getListReservations());
 		
 		return salleRepo.save(existingsalle);

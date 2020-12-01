@@ -35,7 +35,7 @@ public class ReservationEquipementService{
 		ReservationEquipement existingreservationequipement= reservationequipementRepo.findById(reservationequipement.getId()).orElse(null);
 		//existingreservationequipement.setEquipement(reservationequipement.getEquipement());
 		//existingreservationequipement.setReservation(reservationequipement.getReservation());
-		
+		//existingreservationequipement.setId(reservationequipement.getId());
 		return reservationequipementRepo.save(existingreservationequipement);
 		
 	}

@@ -34,6 +34,8 @@ public class EquipementService {
 		existingequipement.setNom(equipement.getNom());
 		//existingequipement.setNomPhoto(equipement.getNomPhoto());
 		existingequipement.setPrix(equipement.getPrix());
+		existingequipement.setReservationequipement(equipement.getReservationequipement());
+		existingequipement.setListImageEquipement(equipement.getListImageEquipement());
 		//existingequipement.setPhoto(equipement.getPhoto());
 		//existingequipement.setSalle(equipement.getSalle());
 		return equipementRepo.save(existingequipement);

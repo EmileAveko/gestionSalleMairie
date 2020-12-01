@@ -41,7 +41,7 @@ public class ReservationService {
 	//	existingreservation.setEmploye(reservation.getEmploye());
 		existingreservation.setHeuredep(reservation.getHeuredep());
 		existingreservation.setHeurefin(reservation.getHeurefin());
-		existingreservation.setListReservationEquipement(reservation.getListReservationEquipement());
+		existingreservation.setListReservationEquipement(reservation.getReservationequipement());
 		existingreservation.setNomev(reservation.getNomev());
 	    existingreservation.setNbrpers(reservation.getNbrpers());
 		//existingreservation.setSalle(reservation.getSalle());

@@ -210,11 +210,11 @@ public class Salle  {
 		this.id = id;
 	}
 
-	public String getNomSal() {
+	public String getNomsal() {
 		return nomsal;
 	}
 
-	public void setNomSal(String nomsal) {
+	public void setNomsal(String nomsal) {
 		this.nomsal = nomsal;
 	}
 
@@ -222,7 +222,7 @@ public class Salle  {
 		return adress;
 	}
 
-	public void setAdresse(String adress) {
+	public void setAdress(String adress) {
 		this.adress = adress;
 	}
 

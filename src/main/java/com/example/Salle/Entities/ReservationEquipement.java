@@ -31,7 +31,7 @@ import lombok.ToString;
 public class ReservationEquipement {
 	
 	@Id
-	 @GeneratedValue //(strategy =GenerationType.AUTO)
+	// @GeneratedValue //(strategy =GenerationType.AUTO)
 	// @Getter
 	 //@Setter
 	private Long id;

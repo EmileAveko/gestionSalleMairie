@@ -73,7 +73,7 @@ public class Reservation {
 	@OneToMany(targetEntity = ReservationEquipement.class ,cascade = CascadeType.ALL)
 	  @JoinColumn(name="reservation_id",referencedColumnName = "id")
     
-	private List<ReservationEquipement> listReservationEquipement;
+	private List<ReservationEquipement> reservationequipement;
 
 	public Long getId() {
 		return id;
@@ -107,12 +107,12 @@ public class Reservation {
 		this.nomev = nomev;
 	}
 
-	public List<ReservationEquipement> getListReservationEquipement() {
-		return listReservationEquipement;
+	public List<ReservationEquipement> getReservationequipement() {
+		return reservationequipement;
 	}
 
-	public void setListReservationEquipement(List<ReservationEquipement> listReservationEquipement) {
-		this.listReservationEquipement = listReservationEquipement;
+	public void setListReservationEquipement(List<ReservationEquipement> reservationequipement) {
+		this.reservationequipement = reservationequipement;
 	}
 
 	public int getNbrpers() {

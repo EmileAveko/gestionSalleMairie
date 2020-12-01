@@ -40,7 +40,7 @@ public class ReservartionEquipementController {
 	}
 	
 	
-	@GetMapping("/reservationsequpements/{id}")
+	@GetMapping("/reservationsequipements/{id}")
 	public ReservationEquipement getReservationEquipement(@PathVariable Long id) {
 		return reservationEquipementService.getReservationEquipement(id);
 	}
