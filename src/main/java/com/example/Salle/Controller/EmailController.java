@@ -16,7 +16,7 @@ public class EmailController {
 	
 	
 	private EmailService emailservice;
-	
+	private  final String email = "projetmairie228@gmail.com";
 	@Autowired
 	public EmailController(EmailService emailservice) {
 		this.emailservice = emailservice;
@@ -27,7 +27,7 @@ public class EmailController {
     @GetMapping("/sendmail/{mail}/{object}/{message}")
     public String sendmail(@PathVariable String mail,@PathVariable String object,@PathVariable String message) {
 
-       emailservice.sendMail("projetmairie228@gmail.com",mail,object,message);
+       emailservice.sendMail(email,mail,object,message);
        
         return "emailsent";
     }
