@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.Salle.Dto.AccueilData;
+
 import com.example.Salle.Entities.Salle;
 import com.example.Salle.Service.SalleService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 public class SalleController {
 	
 	@Autowired

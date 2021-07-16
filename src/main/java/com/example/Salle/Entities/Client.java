@@ -38,74 +38,18 @@ import lombok.ToString;
 public class Client extends Personne {
 	  
 	
-	// @GeneratedValue (strategy =GenerationType.AUTO)
-	//@Getter
-	//@Setter
+	
 	  private String contact;
-	//@Getter
-	//@Setter
+
       private String mail;
-	//@Getter
-	//@Setter
+	
 	  private String status;
       
-	  
-	//  @JsonManagedReference
-	 // @JsonIgnore
-	 /// @JsonIgnoreProperties("client")
-	  
+	
 	  @OneToMany(targetEntity = Reservation.class ,cascade = CascadeType.ALL)
 	  @JoinColumn(name="client_id",referencedColumnName = "id")
       private List<Reservation> listreservation;
-	/*
-	public Client() {}
-	
-	 
-	public Client(String contact, String mail,String status,Set<Reservation> listreservation
-			) {
-		super();
-		this.contact = contact;
-		this.mail = mail;
-		this.listreservation = listreservation;
-		this.status= status;
-	}
-	
 
-
-	public String getContact() {
-		return contact;
-	}
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-	public String getMail() {
-		return mail;
-	}
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-    
-
-	public String getStatus() {
-		return status;
-	}
-
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-
-	public Set<Reservation> getListreservation() {
-		return listreservation;
-	}
-
-
-	public void setListreservation(Set<Reservation> listreservation) {
-		this.listreservation = listreservation;
-	}
-	
-	*/
 
 
 	public String getContact() {

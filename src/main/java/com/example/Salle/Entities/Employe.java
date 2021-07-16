@@ -28,17 +28,13 @@ import lombok.ToString;
 @ToString
 @Entity
 
-//@Table(name="employe")
-//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class,property="id")
+
 public class Employe extends Personne  {
 
-	 //@GeneratedValue //(strategy =GenerationType.AUTO)
-	//@Getter
-	//@Setter
+	 
 	private String mot_de_passe;
 	
-	//@Getter
-	//@Setter
+	
 	private String poste;
 	
 	
@@ -77,38 +73,6 @@ public class Employe extends Personne  {
 		this.listreservation = listreservation;
 	}
 	
-/*
-	public Employe() {}
-	
-	public Employe(String mot_de_passe, String poste,Set<Reservation> listReservation) {
-		super();
-		this.mot_de_passe = mot_de_passe;
-		this.poste = poste;
-		this.listreservation=listReservation;
-	
-	}
-	
-	
-	
-	public String getMot_de_passe() {
-		return mot_de_passe;
-	}
-	
-	
-	public void setMot_de_passe(String mot_de_passe) {
-		this.mot_de_passe = mot_de_passe;
-	}
-	
-	public Set<Reservation> getListreservation() {
-		return listreservation;
-	}
 
-	public void setListreservation(Set<Reservation> listreservation) {
-		this.listreservation = listreservation;
-	}
-
-	
-	*/
-	
 	
 }

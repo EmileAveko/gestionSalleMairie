@@ -40,7 +40,7 @@ import lombok.ToString;
 public class Reservation {
 
 	 @Id
-	// @GeneratedValue // (strategy =GenerationType.AUTO)
+	// @GeneratedValue(strategy =GenerationType.AUTO)
 	// @Getter
 	 //@Setter
 	private Long id;
@@ -124,92 +124,4 @@ public class Reservation {
 		this.nbrpers = nbrpers;
 	}
 	
-/*	
-	public Reservation() {}
-	
-	
-	
-	public Reservation(Long iD, Date heuredep, Date heurefin, String nomev,
-			Set<ReservationEquipement> listReservationEquipement) {
-		
-		this.ID = iD;
-		this.heuredep = heuredep;
-		this.heurefin = heurefin;
-		this.nomev = nomev;
-		//this.client = client;
-		this.employe = employe;
-		//this.salle = salle;
-		this.listReservationEquipement = listReservationEquipement;
-	}
-
-
-
-	public Long getID() {
-		return ID;
-	}
-	public void setID(Long iD) {
-		this.ID = iD;
-	}
-	public Date getHeuredep() {
-		return heuredep;
-	}
-	public void setHeuredep(Date heuredep) {
-		this.heuredep = heuredep;
-	}
-	public Date getHeurefin() {
-		return heurefin;
-	}
-	public void setHeurefin(Date heurefin) {
-		this.heurefin = heurefin;
-	}
-	public String getNomev() {
-		return nomev;
-	}
-	public void setNomev(String nomev) {
-		this.nomev = nomev;
-	}
-
-
-	public Client getClient() {
-		return client;
-	}
-
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
-
-	public Employe getEmploye() {
-		return employe;
-	}
-
-
-	public void setEmploye(Employe employe) {
-		this.employe = employe;
-	}
-
-
-	public Salle getSalle() {
-		return salle;
-	}
-
-
-	public void setSalle(Salle salle) {
-		this.salle = salle;
-	}
-
-
-	public Set<ReservationEquipement> getListReservationEquipement() {
-		return listReservationEquipement;
-	}
-
-
-	public void setListReservationEquipement(Set<ReservationEquipement> listReservationEquipement) {
-		this.listReservationEquipement = listReservationEquipement;
-	}
-	
-	*/
-	
-	       
-
 }

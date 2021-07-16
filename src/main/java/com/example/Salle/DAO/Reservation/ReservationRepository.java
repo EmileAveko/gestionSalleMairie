@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.example.Salle.Entities.Reservation;
+import com.example.Salle.Entities.Salle;
 
 
 public interface ReservationRepository extends JpaRepository<Reservation,Long>{
@@ -14,7 +15,8 @@ public interface ReservationRepository extends JpaRepository<Reservation,Long>{
 	@Query(value=" Select c.nom, c.date_naissance, c.mail, c.status ,s.capmin ,s.surface ,s.capmax, s.adress ,r.nomev,s.prix,r.heuredep,r.heurefin,s.nomsal,r.nbrpers,r.id  from client c, salle s , reservation r WHERE c.id =r.client_id AND r.salle_id =s.id AND s.etat != 'libre' ",nativeQuery=true)
 	List<NameOnly> getData();
 	
-	
+	@Query(value = "SELECT s.id FROM salle s , reservation r WHERE s.id = r.salle_id AND r.id = ?1", nativeQuery = true)
+			Long findSalleByStatusReservation(Long i);
 	
 	public static interface NameOnly {
          int getId();
@@ -38,8 +40,3 @@ public interface ReservationRepository extends JpaRepository<Reservation,Long>{
 }
 
 
-/*@Query(value= "select new com.example.Salle.Dto.AccueilData(java.lang.String(nom)) from Client ",nativeQuery = false)
-public List<AccueilData> getDataAccueil();
-*/
- 
-// "select new com.example.Salle.Dto.AccueilData( java.lang.String(c.nom), java.util.Date(c.dateNaissance), java.lang.String(c.mail), java.lang.String(c.status) ,java.lang.String(s.adresse) ,int(s.capmin) ,int(s.capmax) ,java.lang.String(r.nomev),int(s.prix),java.util.Date(r.heuredep),java.util.Date(r.heurefin)  ) from Client c, Salle s JOIN c.listreservation r 

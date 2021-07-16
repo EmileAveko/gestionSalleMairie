@@ -50,43 +50,7 @@ public class Gardien extends Personne {
 		this.poste = poste;
 	}
 	
-	/*
-	
-	public Gardien() {}
-	
 
-	public Gardien(String mot_de_passe, String poste, Salle salle) {
-		super();
-		this.mot_de_passe = mot_de_passe;
-		this.poste = poste;
-		this.salle = salle;
-	}
-
-	public String getMot_de_passe() {
-		return mot_de_passe;
-	}
-
-	public void setMot_de_passe(String mot_de_passe) {
-		this.mot_de_passe = mot_de_passe;
-	}
-
-	public String getPoste() {
-		return poste;
-	}
-
-	public void setPoste(String poste) {
-		this.poste = poste;
-	}
-
-	public Salle getsalle() {
-		return salle;
-	}
-
-	public void setsalle(Salle salle) {
-		this.salle = salle;
-	}
-	
-	*/
 	
 
 }

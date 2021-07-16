@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Salle.DAO.Reservation.ReservationRepository.NameOnly;
-import com.example.Salle.Dto.AccueilData;
+
 import com.example.Salle.Entities.Reservation;
 
 import com.example.Salle.Service.ReservationService;
 
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 @RestController
 public class ReservationController {
 	@Autowired
@@ -78,11 +78,15 @@ public class ReservationController {
 		this.reservationservice = reservationservice;
 	}
 	
-		@RequestMapping(method = RequestMethod.GET,value="/sallesacceuil")
+	@RequestMapping(method = RequestMethod.GET,value="/sallesacceuil")
 	public List<NameOnly> getAccueilData(){
 		return reservationservice.getit();
 	}
 
-		
-		
+	@RequestMapping(method = RequestMethod.GET,value="/sallereserve/{id}")
+	public Long getSalleByReservation(@PathVariable Long id) {
+		return reservationservice.getSalleByReservation(id);
+	}
+	
+   
 }

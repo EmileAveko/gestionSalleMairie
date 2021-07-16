@@ -20,7 +20,7 @@ import com.example.Salle.Service.EmployeService;
 
 
 @RestController
-//@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 public class EmployeController {
 
 	

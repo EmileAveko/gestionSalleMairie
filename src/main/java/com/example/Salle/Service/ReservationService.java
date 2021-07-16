@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Salle.DAO.Reservation.*;
 import com.example.Salle.DAO.Reservation.ReservationRepository.NameOnly;
-import com.example.Salle.Dto.AccueilData;
+
 import com.example.Salle.Entities.*; 
 
 
@@ -70,6 +70,10 @@ return reservationRepo.findAll();
 }*/
 	public List<NameOnly> getit(){
 		return reservationRepo.getData();
+	}
+	
+	public Long getSalleByReservation(Long i) {
+		return reservationRepo.findSalleByStatusReservation(i);
 	}
 	
 }

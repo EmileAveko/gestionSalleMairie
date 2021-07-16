@@ -61,9 +61,7 @@ public class ClientService {
 	}
 	
 	public List<Client> retrieveClients(){
-		/*List<Client> listclient= new ArrayList<Client>();
-		clientRepo.findAll().forEach(listclient::add);
-		return listclient;*/
+		
 		
 		return clientRepo.findAll();
 	}

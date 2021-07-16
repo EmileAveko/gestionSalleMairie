@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.example.Salle.Dto.AccueilData;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -78,130 +78,7 @@ public class Salle  {
 	  @JoinColumn(name="salle_id",referencedColumnName = "id")
     
 	private List<Equipement> listEquipements;
-	/*
-	public Salle() {}
 	
-	
-	public Salle(Long ID, String nom, String adresse, int capmin, int capmax, int prix,String etat, Set<Gardien> listgardien, Set<Reservation> listreservation,Set<Equipement> listEquipements) {
-		
-		this.ID = ID;
-		this.nom = nom;
-		this.adresse = adresse;
-		this.capmin = capmin;
-		this.capmax = capmax;
-		this.prix = prix;
-        this.listreservation=listreservation;
-        this.listgardien=listgardien;
-        this.listEquipements=listEquipements;
-        this.etat=etat;
-	}
-
-
-	
-	
-	public Long getID() {
-		return ID;
-	}
-	
-	
-	public void setID(Long ID) {
-		this.ID = ID;
-	}
-	
-	
-	public String getNom() {
-		return nom;
-	}
-	
-	
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	
-	
-	public String getAdresse() {
-		return adresse;
-	}
-	
-	
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-	
-	
-	public int getCapmin() {
-		return capmin;
-	}
-	
-	
-	public void setCapmin(int capmin) {
-		this.capmin = capmin;
-	}
-	
-	
-	public int getCapmax() {
-		return capmax;
-	}
-	
-	
-	public void setCapmax(int capmax) {
-		this.capmax = capmax;
-	}
-	public int getPrix() {
-		return prix;
-	}
-	
-	
-	public void setPrix(int prix) {
-		this.prix = prix;
-	}
-
-
-
-	public Set<Gardien> getListgardien() {
-		return listgardien;
-	}
-
-
-	public void setListgardien(Set<Gardien> listgardien) {
-		this.listgardien = listgardien;
-	}
-	
-
-	public String getEtat() {
-		return etat;
-	}
-
-
-	public void setEtat(String etat) {
-		this.etat = etat;
-	}
-
-
-	public Set<Reservation> getListreservation() {
-		return listreservation;
-	}
-
-
-	public void setListreservation(Set<Reservation> listreservation) {
-		this.listreservation = listreservation;
-	}
-
-
-	public Set<Equipement> getListEquipements() {
-		return listEquipements;
-	}
-
-
-	public void setListEquipements(Set<Equipement> listEquipements) {
-		this.listEquipements = listEquipements;
-	}
-
-	
-//	public List<AccueilData> getDataAccueil(){ return null;}
-		
-	*/
-
 	public Long getId() {
 		return id;
 	}

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Salle.Service.EmailService;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="*")
 public class EmailController {
 	
 	
